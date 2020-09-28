@@ -1,0 +1,41 @@
+Approach to solve MNIST handwritten digit problem.
+
+Here I have used MNIST handwritten digit datacreated by 
+
+Yann LeCun, Courant Institute, NYU
+Corinna Cortes, Google Labs, New York
+Christopher J.C. Burges, Microsoft Research, Redmond.
+
+I used CNN(convolution Neural Network)  and Dense Layer(NN Layer)
+
+for Hyperparameter for finding the the best network for the problem. 
+I have used keras tuner with the RandomSearch provided by kerastuner.
+which will find the best parameter suited for my problem statement.
+
+Using that I got this architeture is best for the problem.
+
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 26, 26, 128)       1280      
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 22, 22, 48)        153648    
+_________________________________________________________________
+flatten (Flatten)            (None, 23232)             0         
+_________________________________________________________________
+dense (Dense)                (None, 80)                1858640   
+_________________________________________________________________
+dense_1 (Dense)              (None, 10)                810       
+=================================================================
+Total params: 2,014,378
+Trainable params: 2,014,378
+Non-trainable params: 0
+_________________________________________________________________
+
+Later I trained model futher till 30 epoches and got accuracy around 99.9% for training and 99.9% for validation.
+
+Epoch 29/30
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.0029 - accuracy: 0.9995 - val_loss: 0.0062 - val_accuracy: 0.9993
+Epoch 30/30
+1875/1875 [==============================] - 8s 4ms/step - loss: 0.0019 - accuracy: 0.9995 - val_loss: 9.1156e-04 - val_accuracy: 0.9997
